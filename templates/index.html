@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Tutorial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+      fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+
+      legend.scheduler-border {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Embedding Text </legend>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12"> 
+            <form action="" enctype="multipart/form-data" method="post">
+              <div class="form-group">
+                <label for="">Type a Text</label>
+                <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
+              </div>
+              <!-- <div class="form-group">
+                <label for="">Upload a file </label>
+                <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
+              </div> -->
+              <input type="submit" value="Text Embeding" class="btn btn-primary">
+            </form>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+            <h3>Training Results</h3>
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Min Value: </span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Max Value: </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p></p>
+        </div>
+      </fieldset>
+    </div>
+    <div class="container">
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Embedding Image</legend>
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+            <h3>Information about</h3>
+            <form action="" enctype="multipart/form-data" method="post">
+              <!-- <div class="form-group">
+                <label for="">Write a Text</label>
+                <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Help text</small>
+              </div> -->
+              <div class="form-group">
+                <label for="">Upload a file </label>
+                <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
+              </div>
+              <input type="submit" value="Image Embeding" class="btn btn-primary">
+            </form>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+            <h3>Training Results</h3>
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Min Value: </span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Max Value: </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="container">
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Embedding Image and Text </legend>
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+            <h3>Information about</h3>
+            <form action="" enctype="multipart/form-data" method="post">
+              <div class="form-group">
+                <label for="">Type a Text</label>
+                <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Help text</small>
+              </div>
+              <div class="form-group">
+                <label for="">Upload a file </label>
+                <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
+              </div>
+              <input type="submit" value="Image and Embeding" class="btn btn-primary">
+            </form>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+            <h3>Training Results</h3>
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Min Value: </span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Max Value: </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="container">
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">embedding with values </legend>
+        <form action="" method="post">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                <label for="">Surface</label>
+                <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+              </div>
+              <div class="form-group">
+                <label>Symbolique</label>
+                <select name="Symbolique" id="symbolique">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Type</label>
+                <select name="type" id="type">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Sujet</label>
+                <select name="sujet" id="sujet">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Date ou titre</label>
+                <select name="date_titre" id="date_titre">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Representation</label>
+                <select name="representation" id="representation">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Qualité</label>
+                <select name="qualite" id="qualite">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                <label for="">Lieu</label>
+                <select name="Lieu" id="lieu">
+                  <option value="Afrique">Afrique</option>
+                  <option value="Allemagne">Allemagne</option>
+                  <option value="Angleterre">Angleterre</option>
+                  <option value="Autriche">Autriche</option>
+                  <option value="Belgique">Belgique</option>
+                  <option value="Espagne">Espagne</option>
+                  <option value="France">France</option>
+                  <option value="Grece">Grece</option>
+                  <option value="Hongrie">Hongrie</option>
+                  <option value="Italie">Italie</option>
+                  <option value="Moyen Orient">Moyen Orient</option>
+                  <option value="Netherland">Netherland</option>
+                  <option value="Orient">Orient</option>
+                  <option value="Pologne">Pologne</option>
+                  <option value="Proche Orient">Proche Orient</option>
+                  <option value="Russie">Russie</option>
+                  <option value="Suisse">Suisse</option>
+                  <option value="USA">USA</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="">Cadre</label>
+                <select name="" id="">
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Medium</label>
+                <select name="medium" id="medium">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Support</label>
+                <select name="support" id="support">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Artiste</label>
+                <select name="artiste" id="artiste">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Paysage</label>
+                <select name="paysage" id="paysage">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Maison de vente</label>
+                <select name="maison_vente" id="maison_vente">
+                  <option value="Religieux">Religieux</option>
+                  <option value="Sentiments">Sentiments</option>
+                  <option value="Autres">Autres</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <input type="submit" value="Save" id="save"  class="btn btn-primary" style="float:right">
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
