@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Flask Tutorial</title>
+    <title>Flask</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -34,35 +34,32 @@ legend.scheduler-border {
     
     <div class="container">
       <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Embedding Text </legend>
+        <legend class="scheduler-border">Estimation du prix de l'œuvre selon la description </legend>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12"> 
-            <form action="/process_data" enctype="multipart/form-data" method="post">
+            <form action="" enctype="multipart/form-data" method="post">
               <div class="form-group">
-                <label for="">Type a Text</label>
-                <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
+                <label for="">Veuillez saisir une description</label>
+                <input type="textarea" name="text" id="text" class="form-control" placeholder="Saisir une description ..." aria-describedby="helpId">
               </div>
               <!-- <div class="form-group">
                 <label for="">Upload a file </label>
                 <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
               </div> -->
-              <input type="submit" value="Text Embeding" class="btn btn-primary">
+              <input type="submit" value="Valider" class="btn btn-primary">
             </form>
           </div>
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <h3>Training Results</h3>
+            <h3>Résultat : </h3>
             <div class="row">
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
-                  <span class="">Min Value: </span>
-                      {% if data %}
-                        <span> {{ data }} </span>  
-                      {% endif %}
+                  <span class="">Prix minimum : </span>
                 </div>
               </div>
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
-                  <span class="">Max Value: </span>
+                  <span class="">Prix maximum : </span>
                 </div>
               </div>
             </div>
@@ -73,29 +70,33 @@ legend.scheduler-border {
     </div>
     <div class="container">
       <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Embedding Image</legend>
+        <legend class="scheduler-border">Estimation du prix de l'œuvre selon son image </legend>
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <h3>Information about</h3>
-            <form action="/embimage" enctype="multipart/form-data" method="post">
+            <form action="" enctype="multipart/form-data" method="post">
+              <!-- <div class="form-group">
+                <label for="">Write a Text</label>
+                <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Help text</small>
+              </div> -->
               <div class="form-group">
-                <label for="">Upload a file </label>
-                <input type="file" name="file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".png, .jpg">
+                <label for="">Charger une image </label>
+                <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
               </div>
-              <input type="submit" value="Image Embeding" class="btn btn-primary">
+              <input type="submit" value="Valider" class="btn btn-primary">
             </form>
           </div>
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <h3>Training Results</h3>
+            <h3>Résultat : </h3>
             <div class="row">
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
-                  <span class="">Min Value: </span>
+                  <span class="">Prix minimum : </span>
                 </div>
               </div>
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
-                  <span class="">Max Value: </span>
+                  <span class="">Prix maximum : </span>
                 </div>
               </div>
             </div>
@@ -105,34 +106,33 @@ legend.scheduler-border {
     </div>
     <div class="container">
       <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Embedding Image and Text </legend>
+        <legend class="scheduler-border">Estimation du prix de l'œuvre selon la description et l'image </legend>
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <h3>Information about</h3>
             <form action="" enctype="multipart/form-data" method="post">
               <div class="form-group">
-                <label for="">Type a Text</label>
+                <label for="">Veuillez saisir la description de l'œuvre</label>
                 <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
                 <small id="helpId" class="text-muted">Help text</small>
               </div>
               <div class="form-group">
-                <label for="">Upload a file </label>
+                <label for="">Charger l'image de l'œuvre</label>
                 <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
               </div>
-              <input type="submit" value="Image and Embeding" class="btn btn-primary">
+              <input type="submit" value="Valider" class="btn btn-primary">
             </form>
           </div>
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <h3>Training Results</h3>
+            <h3>Résultat : </h3>
             <div class="row">
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
-                  <span class="">Min Value: </span>
+                  <span class="">Prix minimum : </span>
                 </div>
               </div>
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
-                  <span class="">Max Value: </span>
+                  <span class="">Prix maximum : </span>
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@ legend.scheduler-border {
     </div>
     <div class="container">
       <fieldset class="scheduler-border">
-        <legend class="scheduler-border">embedding with values </legend>
+        <legend class="scheduler-border">Estimation du prix de l'œuvre selon ses caractéristiques</legend>
         <form action="" method="post">
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -153,49 +153,54 @@ legend.scheduler-border {
               <div class="form-group">
                 <label>Symbolique</label>
                 <select name="Symbolique" id="symbolique">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="religieux">Religieux</option>
+                  <option value="sentiments">Sentiments</option>
+                  <option value="none">Autres</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Type</label>
                 <select name="type" id="type">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="animaux">Animaux</option>
+                  <option value="batiments">Batiments</option>
+                  <option value="eaux">Eaux</option>
+                  <option value="plante">Plante</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Sujet</label>
                 <select name="sujet" id="sujet">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="abstrait">Abstrait</option>
+                  <option value="figuratif">Figuratif</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Date ou titre</label>
                 <select name="date_titre" id="date_titre">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="daté">Daté</option>
+                  <option value="titre">Titré</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
-                <label>Representation</label>
-                <select name="representation" id="representation">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                <label>Réputation</label>
+                <select name="reputation" id="representation">
+                  <option value="recherché">Recherché</option>
+                  <option value="reconnu">Reconnu</option>
+                  <option value="réputé">Réputé</option>
+                  <option value="traçable">Traçable</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Qualité</label>
                 <select name="qualite" id="qualite">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="abimé">Abimé</option>
+                  <option value="réparé">Réparé</option>
+                  <option value="très abimé">Très Abimé</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
             </div>
@@ -221,60 +226,89 @@ legend.scheduler-border {
                   <option value="Russie">Russie</option>
                   <option value="Suisse">Suisse</option>
                   <option value="USA">USA</option>
-                  <option value="Autres">Autres</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="">Cadre</label>
                 <select name="" id="">
-                  <option value=""></option>
-                  <option value=""></option>
-                  <option value=""></option>
+                  <option value="cadré">Cadré</option>
+                  <option value="non cadré">Non cadré</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Medium</label>
                 <select name="medium" id="medium">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="huile/acrylique">Huile/Acrylique</option>
+                  <option value="aquarelle/crayons/pastelle">Aquarelle/Crayons/Pastelle</option>
+                  <option value="mixte">Mixte</option>
+                  <option value="autre">Autre</option>
+                  <option value="none">Inconnu</option>
+
                 </select>
               </div>
               <div class="form-group">
                 <label>Support</label>
                 <select name="support" id="support">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="panneau">Panneau</option>
+                  <option value="papier carton">Papier carton</option>
+                  <option value="toile">Toile</option>
+                  <option value="autre">Autre</option>
+                  <option value="none">Inconnu</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Artiste</label>
                 <select name="artiste" id="artiste">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="apocryphe">Apocryphe</option>
+                  <option value="inconnu">Inconnu</option>
+                  <option value="monogrammé">Monogrammé</option>
+                  <option value="signé">Signé</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Paysage</label>
                 <select name="paysage" id="paysage">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="animé">Animé</option>
+                  <option value="humain">Humain</option>
+                  <option value="nature morte">Nature morte</option>    
+                  <option value="portrait">Portrait</option>
+                  <option value="vue">Vue</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Maison de vente</label>
                 <select name="maison_vente" id="maison_vente">
-                  <option value="Religieux">Religieux</option>
-                  <option value="Sentiments">Sentiments</option>
-                  <option value="Autres">Autres</option>
+                  <option value="Ader">Ader</option>
+                  <option value="Aguttes">Aguttes</option>
+                  <option value="Art Richelieu">Art Richelieu</option>
+                  <option value="Artenchères">Artenchères</option>
+                  <option value="Beaussant Lefèvre & Associés">Beaussant Lefèvre & Associés</option>
+                  <option value="Villanfray">Villanfray</option>
+                  <option value="Yann Le Mouel">Yann Le Mouel</option>
+                  <option value="none">Autre</option>
                 </select>
               </div>
             </div>
           </div>
-          <input type="submit" value="Save" id="save"  class="btn btn-primary" style="float:right">
+          <input type="submit" value="Valider" id="save"  class="btn btn-primary" style="float:right">
+          <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+            <h3>Résultat : </h3>
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Prix minimum : </span>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div>
+                  <span class="">Prix maximum : </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
       </fieldset>
     </div>
