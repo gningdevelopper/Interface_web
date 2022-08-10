@@ -37,7 +37,7 @@ legend.scheduler-border {
         <legend class="scheduler-border">Embedding Text </legend>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12"> 
-            <form action="" enctype="multipart/form-data" method="post">
+            <form action="/process_data" enctype="multipart/form-data" method="post">
               <div class="form-group">
                 <label for="">Type a Text</label>
                 <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
@@ -55,6 +55,9 @@ legend.scheduler-border {
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div>
                   <span class="">Min Value: </span>
+                      {% if data %}
+                        <span> {{ data }} </span>  
+                      {% endif %}
                 </div>
               </div>
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
@@ -74,15 +77,10 @@ legend.scheduler-border {
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
             <h3>Information about</h3>
-            <form action="" enctype="multipart/form-data" method="post">
-              <!-- <div class="form-group">
-                <label for="">Write a Text</label>
-                <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
-                <small id="helpId" class="text-muted">Help text</small>
-              </div> -->
+            <form action="/embimage" enctype="multipart/form-data" method="post">
               <div class="form-group">
                 <label for="">Upload a file </label>
-                <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
+                <input type="file" name="file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".png, .jpg">
               </div>
               <input type="submit" value="Image Embeding" class="btn btn-primary">
             </form>
