@@ -1,4 +1,4 @@
-from algorithm import *
+from algorithm import description_predict
 from flask import Flask, render_template
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
@@ -40,8 +40,8 @@ def process_data():
     name = request.form['text']
 
     print(name)
-
-    
+    result = description_predict(name)
+    print(result)
     return render_template("index.html", data=name)
 
 
