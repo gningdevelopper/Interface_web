@@ -5,6 +5,7 @@ Created on Wed Aug 10 20:13:45 2022
 @author: daneb
 """
 
+from xml.etree.ElementInclude import include
 from sentence_transformers import SentenceTransformer
 import pandas as pd
 import re
@@ -20,23 +21,45 @@ import os
 import shutil
 import cv2
 import pickle
+from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 
-model_image = SentenceTransformer('clip-ViT-B-32')
-model_text = SentenceTransformer('all-MiniLM-L6-v2')
+embed_image = ResNet50(weights='imagenet',
+                        include_top=False,
+                        input_shape=(224,224,3),
+                        pooling='max')
+
+embed_text = SentenceTransformer('all-MiniLM-L6-v2')
+
 
 
 #Modèle description
 def description_predict(text):
 #text=["Théodore GÉRICAULT, (1791-1824) Tête de bouledogue. circa 1818-1820 Huile sur toile, porte au verso sur le châssis une annotation « C.M. Mathieu 1876 » à l’encre. 24, 2 x 32, 2 cm (rentoilage des années 1970-1980). Sera inclus dans le Catalogue raisonné des tableaux de Théodore Géricault, actuellement en préparation par Monsieur Bruno Chenique. Provenance : - Collection de feu M. Mathieu, E Girard commissairepriseur, Féral , peintre-expert, Paris, Hotel Drouot, salle n°7, lundi 11 décembre 1876, n° 5. - Paris, collection Edmond Courty - Paris, collection particulière Une expertise de Monsieur Bruno Chenique en date du 30 novembre 2020 sera remise à l’acquéreur. Villanfray France Paris"]
-  text_embed = model_text.encode(text)
-  classifier_text = keras.models.load_model('model/tfidf')
-  prix_log = classifier_text.predict(text_embed)
+  list=[]
+  list.append(text)
+  text_embed = embed_text.encode(list)
+  model_text = keras.models.load_model('model/tfidf')
+  prix_log = model_text.predict(text_embed)
   return np.exp(prix_log)
+
+def extract_features(img_path, model):
+	input_shape = (224, 224, 3)
+	img = image.load_img(img_path,
+                     	target_size=(input_shape[0], input_shape[1]))
+	img_array = image.img_to_array(img)
+	expanded_img_array = np.expand_dims(img_array, axis=0)
+	preprocessed_img = preprocess_input(expanded_img_array)
+	features = model.predict(preprocessed_img)
+	flattened_features = features.flatten()
+	normalized_features = flattened_features / norm(flattened_features)
+	return normalized_features
+
 
 #Test image
 def image_predict(image):
-  img_embed = model_image.encode([Image.open(img) for img in image], batch_size=32, show_progress_bar=True)
-  prix_log = classifier_log_img.predict(img_embed)
+  img_embed = extract_features('image', embed_image)
+  model_image = keras.models.load_model('model/imgmodel_resnet50imagenet_adam_mse_2_32_500')
+  prix_log = model_image.predict(img_embed)
   return np.exp(prix_log)
 
 #Test text and image
@@ -44,8 +67,8 @@ def desc_image_predict(text, image):
   text_embed = model_text.encode(text)
   img_embed = model_image.encode([Image.open(img) for img in image], batch_size=32, show_progress_bar=True)
   total_embed = np.concatenate((text_embed, img_embed), axis=1)
-  prix_log = classifier_log.predict(total_embed)
-  return np.exp(prix_log)
+  #prix_log = classifier_log.predict(total_embed)
+  #return np.exp(prix_log)
 
 def desc_significant_predict(desc):
     desc = str(desc).lower()
