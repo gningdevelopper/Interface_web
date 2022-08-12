@@ -1,4 +1,4 @@
-from algorithm import description_predict
+from algorithm import description_predict, image_predict
 from flask import Flask, render_template
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
@@ -41,8 +41,12 @@ def process_data():
 
     print(name)
     result = description_predict(name)
+
+    print(result[0][0])
+    min_value=result[0][0]
+    max_value=result[0][1]
     print(result)
-    return render_template("index.html", data=name)
+    return render_template("index.html", data={'min_value':min_value, 'max_value':max_value})
 
 
 @app.route('/embimage', methods=['GET', 'POST'])
@@ -67,7 +71,13 @@ def upload_file():
             print(app.config['UPLOAD_FOLDER'])
             print(filename)
 
-            jpgfile = Image.open(filename)
+            jpgfile = Image.open(filename),
+
+            
+
+            result=image_predict(filename)
+
+            print(result)
 
             # Appeler l'algorithme ici et lui passer en parametres l'image
 

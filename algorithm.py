@@ -19,9 +19,10 @@ import glob
 from PIL import Image
 import os
 import shutil
-import cv2
 import pickle
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
+from tensorflow.keras.preprocessing import image
+from numpy.linalg import norm
 
 embed_image = ResNet50(weights='imagenet',
                         include_top=False,
@@ -57,9 +58,9 @@ def extract_features(img_path, model):
 
 #Test image
 def image_predict(image):
-  img_embed = extract_features('image', embed_image)
+  img_embed = extract_features(image, embed_image)
   model_image = keras.models.load_model('model/imgmodel_resnet50imagenet_adam_mse_2_32_500')
-  prix_log = model_image.predict(img_embed)
+  prix_log = model_image.predict(np.array(img_embed))
   return np.exp(prix_log)
 
 #Test text and image

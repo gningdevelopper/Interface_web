@@ -37,7 +37,7 @@ legend.scheduler-border {
         <legend class="scheduler-border">Estimation du prix de l'œuvre selon la description </legend>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12"> 
-            <form action="" enctype="multipart/form-data" method="post">
+            <form action="/process_data" enctype="multipart/form-data" method="post">
               <div class="form-group">
                 <label for="">Veuillez saisir une description</label>
                 <input type="textarea" name="text" id="text" class="form-control" placeholder="Saisir une description ..." aria-describedby="helpId">
@@ -53,14 +53,24 @@ legend.scheduler-border {
             <h3>Résultat : </h3>
             <div class="row">
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                <div>
+                {% if data %}
+                  <div>
+                    <span class="">Prix minimum : {{ data.min_value }} </span>
+                  </div>
+                {% endif %}
+                <!-- <div>
                   <span class="">Prix minimum : </span>
-                </div>
+                </div> -->
               </div>
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                <div>
+                {% if data %}
+                  <div>
+                    <span class="">Prix maximum : {{ data.max_value }} </span>
+                  </div>
+                {% endif %}
+                <!-- <div>
                   <span class="">Prix maximum : </span>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -73,7 +83,7 @@ legend.scheduler-border {
         <legend class="scheduler-border">Estimation du prix de l'œuvre selon son image </legend>
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <form action="" enctype="multipart/form-data" method="post">
+            <form action="/embimage" enctype="multipart/form-data" method="post">
               <!-- <div class="form-group">
                 <label for="">Write a Text</label>
                 <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
@@ -81,7 +91,7 @@ legend.scheduler-border {
               </div> -->
               <div class="form-group">
                 <label for="">Charger une image </label>
-                <input type="file" name="text_file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".txt">
+                <input type="file" name="file" id="" class="form-control" placeholder="" aria-describedby="helpId" accept=".jpg, .png">
               </div>
               <input type="submit" value="Valider" class="btn btn-primary">
             </form>
@@ -109,7 +119,7 @@ legend.scheduler-border {
         <legend class="scheduler-border">Estimation du prix de l'œuvre selon la description et l'image </legend>
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-            <form action="" enctype="multipart/form-data" method="post">
+            <form action="/embimage" enctype="multipart/form-data" method="post">
               <div class="form-group">
                 <label for="">Veuillez saisir la description de l'œuvre</label>
                 <input type="textarea" name="text" id="text" class="form-control" placeholder="Type a text ..." aria-describedby="helpId">
